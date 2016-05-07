@@ -12,7 +12,6 @@ def driver():
 
 # You must implement this function
 def grayPosterise(oriPic,newPic,grayPoint):
-  print grayPoint
   for p in getPixels(newPic):
     r = getRed(p)
     g = getGreen(p)
@@ -22,28 +21,29 @@ def grayPosterise(oriPic,newPic,grayPoint):
       setColor(p,black)
     if luminance >= grayPoint:
       setColor(p,white)
-  print grayPoint
-  file = "c:\\temp\\imgage"+str(grayPoint)+".jpg"
-  writePictureTo(newPic,file)  
+  #print grayPoint
+  #file = "c:\\temp\\imgage"+str(grayPoint)+".jpg"
+  #writePictureTo(newPic,file)  
 
   
-"""img1 = oriPic
-img2 = newPic
-  
-imageDiff = imageDiff(img1,img2)
-  """
+
   #return #newPic
 
 # You must implement this function   
 def smartGrayPosterise(oriPic):
-  grayPoint = 0
-  maxCount = 150
+  grayPoint = 75
+  maxCount = 80
   newPic = duplicatePicture(oriPic)
   while (grayPoint < maxCount):
     grayPosterise(oriPic,newPic,grayPoint)
     show(newPic)
     #file = "c:\\temp\\imgage"+str(grayPoint)+".jpg"
     #writePictureTo(newPic,file)
+    img1 = oriPic
+    img2 = newPic
+    imageDiff(img1,img2)
+    
+
     grayPoint = grayPoint +1
   
     
@@ -90,6 +90,7 @@ def imageDiff(img1,img2):
     clr1=getColor(px1)
     clr2=getColor(px2)
     totalDistance=totalDistance+ distance(clr1,clr2)
+    
   return totalDistance
 
         
