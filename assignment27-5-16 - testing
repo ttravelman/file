@@ -21,35 +21,26 @@ def grayPosterise(oriPic,newPic,grayPoint):
       setColor(p,black)
     if luminance >= grayPoint:
       setColor(p,white)
-  #print grayPoint
-  #file = "c:\\temp\\imgage"+str(grayPoint)+".jpg"
-  #writePictureTo(newPic,file)  
-
-  
-
-  #return #newPic
+ 
+  return newPic
+  show (newPic)
 
 # You must implement this function   
 def smartGrayPosterise(oriPic):
-  grayPoint = 75
-  maxCount = 80
-  newPic = duplicatePicture(oriPic)
+  grayPoint = 0
+  maxCount = 256
+  newPic = duplicatePicture(oriPic)  
+  
   while (grayPoint < maxCount):
     grayPosterise(oriPic,newPic,grayPoint)
-    show(newPic)
-    #file = "c:\\temp\\imgage"+str(grayPoint)+".jpg"
-    #writePictureTo(newPic,file)
     img1 = oriPic
     img2 = newPic
-    imageDiff(img1,img2)
+    totalDistance = imageDiff(img1,img2)
+    totalDistance
+    print grayPoint, totalDistance
     
-
     grayPoint = grayPoint +1
-  
-    
-    
-    
-    
+
   return #posterisedPic
 
 
@@ -90,7 +81,7 @@ def imageDiff(img1,img2):
     clr1=getColor(px1)
     clr2=getColor(px2)
     totalDistance=totalDistance+ distance(clr1,clr2)
-    
+
   return totalDistance
 
         
